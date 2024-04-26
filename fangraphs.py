@@ -23,7 +23,7 @@ for file in file_list:
 
     df = pd.concat(list_of_df)
 
-    lamb = lambda x: x.split()[1] + ', ' + x.split()[0]
+    lamb = lambda x: x.split()[-1] + ', ' + x.rsplit(' ', 1)[0]
     df['player_name'] = df['Name'].apply(lamb)
     col = list(df.columns)
 
