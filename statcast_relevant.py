@@ -4,6 +4,8 @@ import pandas as pd
 read_directory = 'statcast_raw_csv_files'
 write_directory = 'statcast_relevant_predictors_csv_files'
 
+NEED_RELEASE = True
+
 
 relevant_attributes = ['player_name',
                        'pitcher',
@@ -50,7 +52,7 @@ for file in file_list:
 
     df = df.reindex(index=df.index[::-1])
 
-    pd.set_option('display.max_columns', None)
+    # pd.set_option('display.max_columns', None)
 
     df['pitch_of_game'] = df.groupby('game_pk').cumcount() + 1
 
@@ -58,6 +60,9 @@ for file in file_list:
 
     col.insert(4, col.pop())
     df = df[col]
+
+    if NEED_RELEASE:
+        df = df[df['release_speed'].notna()]
 
     year = filename[:4]
     filename_w = f"{year}_statcast_relevant.csv"
