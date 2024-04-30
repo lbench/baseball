@@ -1,0 +1,8 @@
+1. statcast_raw.py (you might have to manually put the resulting csv files in "statcast_raw_csv_files" folder
+
+2. statcast_relevant.py
+
+3. fangraphs.py
+
+4. exploration2.ipynb (just hit run all)
+
