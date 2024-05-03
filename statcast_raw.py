@@ -1,4 +1,4 @@
-from pybaseball import statcast, cache, statcast_pitcher, playerid_lookup
+from pybaseball import statcast, cache
 import pandas as pd
 
 cache.enable()
